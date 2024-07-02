@@ -19,7 +19,7 @@ function AddItems({ onAddItem }) {
         setShippingMethod(e.target.value);
     }
 
-    const shippingMethods = ["Standard", "Express", "Next Day"];
+    const shippingMethods = ["Same Day Shipping", "None"];
 
     const handleSubmit = async (e) => {
         e.preventDefault();
