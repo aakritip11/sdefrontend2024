@@ -2,10 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const cors = require('cors'); // Import cors
 const db = require('./database');
 
 const backend = express();
 backend.use(bodyParser.json());
+
+// Use CORS middleware
+backend.use(cors());
 
 const ENCRYPTION_KEY = crypto.randomBytes(32);
 const IV_LENGTH = 16;
@@ -47,7 +51,7 @@ backend.get('/item/:id', (req, res) => {
             return res.status(500).json({ error: err.message });
         }
         if (!row) {
-            return res.status(404).json({ error: 'Note not found' });
+            return res.status(404).json({ error: 'Item not found' });
         }
         const decrypteditemname = decrypt(row.itemname);
         const itemprice = row.itemprice

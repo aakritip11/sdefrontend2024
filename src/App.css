@@ -104,27 +104,49 @@ input::placeholder {
 }
 
 /* Explore */
+
 .explore--search {
-  display: flex;
-  border: 1px solid grey;
-  border-radius: 2%;
-  padding: 2%;
-  color: grey;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .explore--content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1300px;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  gap: 20px;
 }
 
-.explore--itemimage img {
-  width: 50px;
-  height: 50px;
+.explore--item {
+  /* border: 1px solid grey; */
+  /* border-radius: 5px; */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.explore--item-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.explore--item-details {
+  margin-top: 10px;
+}
+
+.explore--item-name {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.explore--item-price {
+  margin: 5px 0;
+}
+
+.explore--shipping-method {
+  margin: 5px 0;
+  font-style: italic;
+  color: #888;
 }
