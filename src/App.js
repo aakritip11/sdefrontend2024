@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddItems from './Components/AddItems';
+import Explore from './Components/Explore';
 
 function App() {
+  const [itemname,setItemName] = useState("");
+  const [itemprice, setItemPrice] = useState(" ");
+
+  useEffect(()=>{
+    setItemName(localStorage.getItem("itemname"));
+    setItemPrice(localStorage.getItem("itemprice"));
+  },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AddItems setItemName = {setItemName} setItemPrice = {setItemPrice}/>
+      <Explore/>
+      <Routes>
+        {/* <Route path='/AddItems' element={<AddItems />} />
+        <Route path='/Explore' element={<Explore />} /> */}
+      </Routes>
+    </Router>
   );
 }
 
