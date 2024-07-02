@@ -1,33 +1,31 @@
-/* additems */
-.additems{
+/* Add Items Component */
+.additems {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
   border: 1px solid black;
   padding: 7%;
   margin: 7%;
 }
 
-.additems--navbar{
+.additems--navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 
-.additems--heading{
+.additems--heading {
   display: flex;
   justify-content: flex-start;
 }
 
-.additems--add{
+.additems--add {
   color: green;
   cursor: pointer;
 }
 
-.additems--contents{
+.additems--contents {
   display: flex;
+  flex-direction: column;
   /* justify-content: center; */
   /* align-items: center; */
 }
@@ -44,17 +42,34 @@
   text-align: left;
   font-weight: bold;
   padding-bottom: 2%;
-  /* color: grey; */
   font-size: 1.2rem;
 }
 
-.additems--submit{
+.select {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1rem;
+  color: grey;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid grey;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.select:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.additems--submit {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.additems--btn{
+.additems--btn {
   width: 100%;
   background-color: green;
   color: var(--whiteColor);
@@ -67,11 +82,11 @@
   font-weight: 600;
 }
 
-.additems--btn:hover{
+.additems--btn:hover {
   background-color: lightgreen;
 }
 
-/* input */
+/* Input */
 input[type="text"] {
   display: flex;
   justify-content: center;
@@ -82,7 +97,6 @@ input[type="text"] {
   width: 100%;
 }
 
-
 input::placeholder {
   color: grey;
   opacity: 0.5;
@@ -90,7 +104,7 @@ input::placeholder {
 }
 
 /* Explore */
-.explore--search{
+.explore--search {
   display: flex;
   border: 1px solid grey;
   border-radius: 2%;
@@ -98,11 +112,11 @@ input::placeholder {
   color: grey;
 }
 
-.explore--content{
+.explore--content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  padding: 2rem;  
+  padding: 2rem;
   max-width: 1300px;
   margin: auto;
   width: 100%;
@@ -110,11 +124,7 @@ input::placeholder {
   overflow: hidden;
 }
 
-.explore--percontent{
-  
-}
-
-.explore--itemimage img{
+.explore--itemimage img {
   width: 50px;
   height: 50px;
 }

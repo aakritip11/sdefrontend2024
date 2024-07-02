@@ -6,7 +6,7 @@ function AddItems(){
     const navigate = useNavigate();
     const [itemname, setItemName] = useState("");
     const [itemprice, setItemPrice] = useState("");
-    const [shippingmethod, setShippingMethod] = useState("");
+    const [shippingMethod, setShippingMethod] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const [token, setToken] = useState(null);
 
@@ -23,6 +23,9 @@ function AddItems(){
         setShippingMethod(e.target.value);
     }
 
+    
+    const shippingMethods = ["Standard", "Express", "Next Day"];
+
     const [item, setitem] = useState([]);
 
     const addTask = async () => {
@@ -38,7 +41,7 @@ function AddItems(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (itemname === "" || itemprice === "" || shippingmethod === "") {
+        if (itemname === "" || itemprice === "" || shippingMethod === "") {
             setErrorMessage("Please fill in all the fields.");
             return;
         }
@@ -74,14 +77,19 @@ function AddItems(){
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="shippingmethod">Shipping Method</label>
-                        <input
-                        type="text"
-                        id="shipping method"
-                        placeholder="Shipping Method"
-                        value={itemprice}
-                        onChange={handleShippingMethodChange}
-                        />
+                    <label htmlFor="shippingmethod">Shipping Method</label>
+                        <select
+                            id="shippingmethod"
+                            value={shippingMethod}
+                            onChange={handleShippingMethodChange}
+                        >
+                            <option value="" disabled>Select Shipping Method</option>
+                            {shippingMethods.map((method) => (
+                            <option key={method} value={method}>
+                                {method}
+                            </option>
+                            ))}
+                        </select>
                     </div>
                     
                     {errorMessage && <p className="error">{errorMessage}</p>}
